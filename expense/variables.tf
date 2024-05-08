@@ -4,10 +4,11 @@ variable "image_id" {
     description = "RHEL AMI id"
   
 }
-variable "instance_type"{
+variable "instance_type" {
+    default = "t3.micro"
     type = string
-    default = "t2.micro"
 }
+ 
 variable "common_tags" {
     default = {
         Project = "Expense"
@@ -18,7 +19,7 @@ variable "common_tags" {
 }
 variable "instance_names" {
     type = list
-    default = [ "DB", "Frontend" , "Backend"]
+    default = [ "db", "Frontend" , "Backend"]
   
 }
 variable "sg_name" {
