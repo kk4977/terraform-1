@@ -1,3 +1,4 @@
+# ec2 records
 variable "image_id" {
     type = string
     default = "ami-090252cbe067a9e58"
@@ -22,6 +23,7 @@ variable "instance_names" {
     default = [ "db", "Frontend" , "Backend"]
   
 }
+# sg records
 variable "sg_name" {
     default = "allow_ssh"
   
@@ -44,3 +46,14 @@ variable "allowed_cidr"{
     type = list
     default = ["0.0.0.0/0"]
     }
+# R53 records
+variable "zone_id" {
+    default = "Z07413803U46VCY2KI9MO"
+    type  = string
+  
+}
+variable "domain_name" {
+    default = "sivakumar.cloud"
+    type = string
+  
+}

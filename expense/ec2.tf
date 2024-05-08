@@ -1,4 +1,4 @@
-resource "aws_instance" "db" {
+resource "aws_instance" "expense" {
     ami = var.image_id
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     instance_type = var.instance_names[count.index] == "db" ? "t3.small" : "t3.micro"
