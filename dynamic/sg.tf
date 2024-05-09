@@ -1,14 +1,13 @@
 resource "aws_security_group" "allow_ssh" {
-    name = "allow_ssh"
-    description = "allowing ssh access"
-
+    name = "allow_all_expense_ports"
+    description = "allowing all expense ports"
     dynamic "ingress" {
         for_each = var.inbound_rules
         content{
-        from_port = ingress.value[port]
-        to_port = ingress.value[port]
-        protocol = ingress.value[protocol]
-        cidr_blocks = ingress.value[allowed_cidr]
+        from_port = ingress.value["port"]
+        to_port = ingress.value["port"]
+        protocol = ingress.value["protocol"]
+        cidr_blocks = ingress.value["allowed_cidr"]
     }
     }
     egress {
@@ -18,7 +17,7 @@ resource "aws_security_group" "allow_ssh" {
         cidr_blocks = ["0.0.0.0/0"]
     }
     tags = {
-        Name = "allow_ports"
+        Name = "allow_expense_ports"
         CreatedBy = "Sivakumar"
     }
 }
