@@ -4,6 +4,7 @@ variable "instance_names" {
         db = "t3.small"
         backend = "t3.micro"
         Frontend  = "t3.micro"
+        Ansible = "t3.micro"
     }  
 }
 
